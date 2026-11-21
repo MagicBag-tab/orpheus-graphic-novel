@@ -1,0 +1,32 @@
+# Dependencias
+node_modules/
+
+# Builds de Vite
+dist/
+build/
+
+# Variables de entorno locales
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Cachés
+.vite/
+.cache/
+
+# Sistema operativo y editores
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Cobertura de tests
+coverage/

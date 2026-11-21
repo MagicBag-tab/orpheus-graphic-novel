@@ -1,0 +1,147 @@
+/* Each location uses the same four moving planes, with its own silhouettes. */
+.stage .scenery{position:absolute;display:block;pointer-events:none}
+.stage .character{z-index:3}
+.stage__props{position:absolute;inset:0;z-index:1;pointer-events:none}
+.stage-prop{position:absolute;display:block;transform:translate(-50%,-50%);pointer-events:none}
+.stage-prop:before,.stage-prop:after{content:'';position:absolute;display:block}
+.stage-prop--guitar{width:55px;height:70px;border-radius:48% 48% 44% 44%;background:radial-gradient(circle at 50% 47%,#281b17 0 10%,#ba7848 12% 53%,#663c29 70%);border:3px solid #d49b66;transform:translate(-50%,-50%) rotate(-22deg)}
+.stage-prop--guitar:before{left:42%;bottom:85%;width:16%;height:68%;background:#b9855a;border:2px solid #6e442e}
+.stage-prop--photo{width:66px;height:48px;background:linear-gradient(135deg,#a1918d,#6c6672 53%,#b38d77);border:7px solid #e2d4be;transform:translate(-50%,-50%) rotate(-10deg);box-shadow:0 5px 11px #0008}
+.stage-prop--coat{width:58px;height:89px;background:#7d6271;clip-path:polygon(29% 0,70% 0,88% 25%,100% 100%,0 100%,12% 25%);filter:drop-shadow(5px 7px 5px #0009)}
+.stage-prop--coat:before{left:30%;top:-10px;width:40%;height:12px;border:3px solid #b8b7b1;border-bottom:0;border-radius:50% 50% 0 0}
+.stage-prop--bench{width:100px;height:45px;border:8px solid #162134;border-bottom:12px solid #101827;background:repeating-linear-gradient(90deg,#39495a 0 20%,#1e2c3b 20% 25%);box-shadow:0 -9px 0 #667381}
+.stage-prop--map{width:67px;height:57px;border:6px solid #9aa7a9;background:linear-gradient(135deg,transparent 48%,#caab7a 49% 52%,transparent 53%),linear-gradient(70deg,#4d7184 0 45%,#b0c0bb 46%);box-shadow:0 0 0 4px #263247}
+.stage-prop--ticket{width:64px;height:31px;border:3px solid #d5bc91;background:repeating-linear-gradient(90deg,#eee0bb 0 18%,#b9a480 18.3% 19%);transform:translate(-50%,-50%) rotate(15deg);box-shadow:0 5px 10px #0009}
+.stage-prop--throne{width:97px;height:113px;background:linear-gradient(#655163,#292536);clip-path:polygon(16% 0,84% 0,100% 100%,0 100%);border-top:8px solid #b9a087;box-shadow:0 0 24px #b48e7c66}
+.stage-prop--tablet{width:77px;height:72px;background:#b9a18a;border:7px solid #4f3f4a;clip-path:polygon(12% 0,88% 0,100% 100%,0 100%);box-shadow:0 0 21px #c6a28a77}
+.stage-prop--lamp{width:39px;height:30px;background:#ead6a4;border:5px solid #536579;box-shadow:0 0 27px 8px #bdba9a88}
+.stage-prop--scarf{width:73px;height:18px;background:#dbada2;transform:translate(-50%,-50%) rotate(-13deg);box-shadow:20px 16px 0 -3px #c48d8e}
+.stage-prop--sign{width:98px;height:43px;background:#f1e0ba;border:6px solid #4a4b58}.stage-prop--sign:after{content:'SALIDA ↑';inset:0;display:grid;place-items:center;color:#3b4351;font:700 12px Arial,sans-serif}
+.stage-prop--door{width:82px;height:94px;border:11px solid #82918d;border-bottom:0;border-radius:46% 46% 0 0;background:#101821}
+.stage__middle{overflow:visible}
+.stage__front{background:none}
+.stage--rooftop .stage__back{background:radial-gradient(circle at 76% 20%,#d8bdab55,transparent 19%),linear-gradient(#091224 0%,#182642 68%,#101927 100%)}
+.stage--rooftop .scenery--far-a{right:14%;top:9%;width:11%;aspect-ratio:1;border-radius:50%;background:#ead5bd;box-shadow:0 0 65px #dcc8bc66}
+.stage--rooftop .scenery--far-b{inset:36% 0 0;background:linear-gradient(90deg,#101a2c 0 9%,transparent 9% 11%,#18243a 11% 21%,transparent 21% 24%,#0d1729 24% 38%,transparent 38% 41%,#17243b 41% 56%,transparent 56% 58%,#0e192d 58% 72%,transparent 72% 75%,#17243a 75% 87%,transparent 87% 90%,#111c30 90% 100%);clip-path:polygon(0 25%,9% 25%,9% 42%,11% 42%,11% 7%,21% 7%,21% 34%,24% 34%,24% 18%,38% 18%,38% 40%,41% 40%,41% 3%,56% 3%,56% 30%,58% 30%,58% 20%,72% 20%,72% 34%,75% 34%,75% 10%,87% 10%,87% 28%,90% 28%,90% 20%,100% 20%,100% 100%,0 100%)}
+.stage--rooftop .scenery--arch-a{left:14%;top:15%;width:2px;height:47%;background:#8892a7;box-shadow:2px 0 0 #354357,0 -4px 0 2px #93a4b5}
+.stage--rooftop .scenery--arch-a:before,.stage--rooftop .scenery--arch-a:after{content:'';position:absolute;background:#8d9db2}.stage--rooftop .scenery--arch-a:before{left:-26px;top:18%;width:54px;height:2px}.stage--rooftop .scenery--arch-a:after{left:-18px;top:32%;width:38px;height:2px}
+.stage--rooftop .scenery--arch-b{right:31%;top:25%;width:2px;height:39%;background:#69778b;box-shadow:0 -14px 0 2px #b2a88e}.stage--rooftop .scenery--arch-b:before{content:'';position:absolute;top:10%;left:-18px;width:38px;border-top:2px solid #8191a4}
+.stage--rooftop .scenery--mid-a{left:0;right:0;bottom:0;height:31%;background:linear-gradient(#28374c,#101724);clip-path:polygon(0 22%,100% 6%,100% 100%,0 100%)}
+.stage--rooftop .scenery--front-a{left:-2%;right:-2%;bottom:4%;height:17%;border-top:8px solid #718098;background:repeating-linear-gradient(90deg,#172132 0 1.3%,transparent 1.5% 12%),linear-gradient(#182438cc,#0a111d)}
+.stage--rooftop .scenery--front-b{right:4%;bottom:5%;width:13%;height:4px;background:#101724;box-shadow:0 8px 0 #101724}
+
+.stage--signal .stage__back{background:linear-gradient(115deg,#101826,#22324a 58%,#101725)}
+.stage--signal .scenery--far-a{right:7%;top:10%;width:37%;height:53%;border:8px solid #35445a;background:linear-gradient(#182947,#53647b 72%,#b1a49a 100%);box-shadow:0 0 0 4px #0d1521,inset 0 0 35px #101725}
+.stage--signal .scenery--far-a:after{content:'';position:absolute;left:48%;top:0;bottom:0;border-left:5px solid #35445a}
+.stage--signal .scenery--far-b{left:0;right:0;bottom:0;height:34%;background:repeating-linear-gradient(90deg,#1f2b3c 0 14%,#283448 14.2% 14.5%),linear-gradient(#2b3b4e,#151c2b)}
+.stage--signal .scenery--arch-a{left:7%;top:13%;width:17%;height:49%;border:8px solid #263349;background:#111a2a;box-shadow:0 8px 0 #0c1320}
+.stage--signal .scenery--arch-b{left:18%;top:16%;width:4px;height:22%;background:#8694a4;box-shadow:0 -8px 0 4px #bbc1bc}
+.stage--signal .scenery--mid-a{left:40%;top:44%;width:25%;height:25%;border:8px solid #101827;border-bottom:16px solid #0c1422;background:repeating-linear-gradient(90deg,#293b4b 0 3%,#1c2735 3% 25%)}
+.stage--signal .scenery--mid-a:after{content:'';position:absolute;left:3%;right:3%;top:-16px;height:12px;background:#3e4d60}
+.stage--signal .scenery--front-a{inset:auto 0 0;height:17%;background:linear-gradient(90deg,transparent 0 20%,#39465a44 20% 21%,transparent 21% 100%),linear-gradient(#202b3b,#0c1523);border-top:4px solid #617389}
+
+.stage--gate .stage__back{background:radial-gradient(ellipse at 70% 42%,#51445f,#111827 61%,#090d17)}
+.stage--gate .scenery--far-a{left:46%;top:24%;width:45%;height:75%;background:linear-gradient(#151224,#05070c);clip-path:polygon(30% 0,70% 0,100% 100%,0 100%);box-shadow:0 0 70px #ac83b955}
+.stage--gate .scenery--far-b{left:0;right:0;bottom:0;height:35%;background:repeating-linear-gradient(90deg,#1c2535 0 6%,#26354a 6.2% 6.5%);border-top:5px solid #74859b}
+.stage--gate .scenery--arch-a{left:38%;top:8%;width:58%;height:78%;border:clamp(12px,2vw,28px) solid #35455e;border-bottom:0;border-radius:50% 50% 0 0;box-shadow:inset 0 0 0 4px #7c7290,0 0 28px #000}
+.stage--gate .scenery--arch-b{left:8%;top:14%;width:29%;height:13%;background:#c5bdad;border:7px solid #2a3444;box-shadow:0 5px 0 #0b111c}
+.stage--gate .scenery--arch-b:after{content:'METRO · ÚLTIMA ESTACIÓN';position:absolute;inset:0;display:grid;place-items:center;color:#17243b;font:700 clamp(9px,1.2vw,15px) Arial,sans-serif;letter-spacing:.06em;text-align:center}
+.stage--gate .scenery--mid-a{left:48%;bottom:0;width:38%;height:54%;background:repeating-linear-gradient(0deg,#8290a255 0 7%,#12192a 7.5% 12%);clip-path:polygon(32% 0,68% 0,100% 100%,0 100%)}
+.stage--gate .scenery--front-a{inset:auto 0 0;height:15%;background:linear-gradient(#29354b,#0b1120);border-top:7px solid #b6a781}
+.stage--gate .scenery--front-b{left:7%;bottom:14%;width:26%;height:4px;background:#677890;box-shadow:0 -17px 0 #677890,0 -34px 0 #677890}
+
+.stage--bargain .stage__back{background:radial-gradient(ellipse at 65% 34%,#473548,#11101e 63%,#070910)}
+.stage--bargain .scenery--far-a{left:8%;right:8%;top:7%;height:83%;background:repeating-linear-gradient(90deg,#1d2335 0 11%,#36405a 11.2% 12%,#111525 12.2% 24%);clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
+.stage--bargain .scenery--far-b{left:41%;top:3%;width:28%;height:72%;border:15px solid #6c5b70;border-bottom:0;border-radius:46% 46% 0 0;background:radial-gradient(ellipse at 50% 45%,#5e4663,#16101e 68%);box-shadow:0 0 70px #bd8d8555}
+.stage--bargain .scenery--arch-a{left:5%;right:5%;top:14%;height:71%;background:repeating-linear-gradient(90deg,transparent 0 21%,#8b778066 21.2% 21.8%,transparent 22% 40%);border-top:8px solid #685d6e}
+.stage--bargain .scenery--arch-b{left:65%;top:22%;width:20%;height:55%;background:linear-gradient(#55475a,#1a1728);clip-path:polygon(22% 0,78% 0,100% 100%,0 100%);border-top:7px solid #a58b7a}
+.stage--bargain .scenery--mid-a{left:42%;top:44%;width:15%;height:25%;background:#aa937e;border:7px solid #32263c;box-shadow:0 0 24px #c6a28a77;clip-path:polygon(12% 0,88% 0,100% 100%,0 100%)}
+.stage--bargain .scenery--mid-b{left:15%;bottom:18%;width:4%;height:34%;background:linear-gradient(#f3c98e,#6c3b3c 23%,#201b29 24%);clip-path:polygon(38% 0,64% 0,100% 100%,0 100%);filter:drop-shadow(0 0 18px #e5a879)}
+.stage--bargain .scenery--front-a{inset:auto 0 0;height:22%;background:repeating-linear-gradient(90deg,#10131e 0 14%,#3a324055 14.2% 14.5%),linear-gradient(#332c3a,#0b0c14);border-top:5px solid #756779}
+.stage--bargain .character--hades{left:52%}.stage--bargain .character--orpheus{left:17%}.stage--bargain .character--euridice{right:2%;opacity:.88}
+
+.stage--descent .stage__back{background:radial-gradient(ellipse at 50% 45%,#314159 0,#101928 16%,#03060b 75%)}
+.stage--descent .scenery--far-a{left:42%;top:25%;width:16%;height:32%;background:#010307;border:8px solid #52677d;border-bottom:0;border-radius:46% 46% 0 0;box-shadow:0 0 40px #7794ad44}
+.stage--descent .scenery--far-b{inset:0;background:repeating-linear-gradient(90deg,#060c17 0 7%,#263b52 7.2% 7.7%,#0a101b 8% 20%);clip-path:polygon(0 0,42% 0,47% 100%,0 100%,100% 100%,53% 100%,58% 0,100% 0)}
+.stage--descent .scenery--arch-a{inset:0;background:repeating-radial-gradient(ellipse at 50% 50%,transparent 0 16%,#47607855 16.5% 17%,transparent 18% 29%);clip-path:polygon(0 0,100% 0,78% 100%,22% 100%)}
+.stage--descent .scenery--arch-b{left:25%;right:25%;top:10%;height:9px;background:#b1a889;box-shadow:0 0 26px #d4bd8e,0 58px 0 -2px #827e79,0 115px 0 -3px #5c6676}
+.stage--descent .scenery--mid-a{left:22%;right:22%;bottom:0;height:54%;background:linear-gradient(90deg,#2b384b 0 12%,#0a111c 12% 48%,#293a4b 49% 51%,#0a111c 52% 88%,#2b384b 88%);clip-path:polygon(39% 0,61% 0,100% 100%,0 100%)}
+.stage--descent .scenery--front-a{left:-5%;right:-5%;bottom:0;height:19%;background:linear-gradient(90deg,#141f2b 0 30%,transparent 30% 70%,#141f2b 70%),repeating-linear-gradient(0deg,#6c655c 0 7%,#0b1018 8% 18%)}
+.stage--descent .scenery--front-b{left:15%;right:15%;bottom:0;height:45%;background:linear-gradient(76deg,transparent 0 37%,#c1ab78 37.2% 38%,transparent 38.2%),linear-gradient(104deg,transparent 0 62%,#c1ab78 62.2% 63%,transparent 63.2%)}
+
+.stage--doubt .stage__back{background:linear-gradient(#10182a,#172638 60%,#080d18)}
+.stage--doubt .scenery--far-a{left:0;right:0;top:15%;height:16%;background:repeating-linear-gradient(90deg,#223247 0 13%,#0d1727 13.2% 14%,#27354a 14.2% 27%);border-bottom:5px solid #69788c}
+.stage--doubt .scenery--far-b{left:5%;right:5%;bottom:15%;height:37%;background:repeating-linear-gradient(90deg,#1a2a3e 0 18%,#30445a 18.2% 18.8%,#121d2e 19% 37%);opacity:.75}
+.stage--doubt .scenery--arch-a{left:9%;right:9%;top:7%;height:7px;background:#a9a69b;box-shadow:0 0 23px #d6ccb2,0 48px 0 -2px #7f8d9b}
+.stage--doubt .scenery--arch-b{left:42%;top:28%;width:15%;height:49%;background:linear-gradient(90deg,transparent,#8d84aa77,transparent);clip-path:polygon(34% 0,66% 0,100% 100%,0 100%);filter:blur(5px)}
+.stage--doubt .scenery--mid-a{left:21%;bottom:17%;width:37%;height:18%;border:7px solid #273c51;border-top:13px solid #43576d;background:#132235}
+.stage--doubt .scenery--mid-b{left:68%;top:28%;width:18%;height:57%;background:linear-gradient(90deg,transparent,#b4a1bd55,transparent);clip-path:polygon(35% 0,68% 0,100% 100%,0 100%);filter:blur(4px)}
+.stage--doubt .scenery--front-a{inset:auto 0 0;height:20%;background:radial-gradient(ellipse at 70% 10%,#8f8ca044,transparent 30%),linear-gradient(#293b50,#101b2b);border-top:5px solid #8694a2}
+.stage--doubt .scenery--front-b{left:6%;right:6%;bottom:4%;height:5px;background:#c0a97b77;transform:skewY(-2deg)}
+
+.stage--voice .stage__back{background:radial-gradient(ellipse at 69% 37%,#694d54,#211d2c 51%,#0d1220)}
+.stage--voice .scenery--far-a{left:13%;right:13%;top:6%;height:89%;border:16px solid #53475d;border-bottom:0;border-radius:46% 46% 0 0;background:linear-gradient(90deg,#171c2c,#332b3b 55%,#1d1c2b)}
+.stage--voice .scenery--far-b{right:17%;top:15%;width:37%;height:61%;background:radial-gradient(ellipse,#b28d8a44,transparent 68%)}
+.stage--voice .scenery--arch-a{left:17%;right:17%;top:34%;height:5px;background:#a98d78;box-shadow:0 9px 0 #3e3542}
+.stage--voice .scenery--arch-b{left:16%;top:21%;width:5%;height:52%;background:linear-gradient(#ecd4a5,#7e5e60 18%,#342c3c);box-shadow:0 0 32px #e5b89888}
+.stage--voice .scenery--mid-a{left:18%;bottom:12%;width:26%;height:22%;border:7px solid #302b3b;border-top:11px solid #856d6b;background:#2c2635}
+.stage--voice .scenery--mid-b{right:15%;bottom:9%;width:8%;height:19%;background:#9f6e79;clip-path:polygon(28% 0,72% 0,100% 100%,0 100%)}
+.stage--voice .scenery--front-a{inset:auto 0 0;height:15%;background:linear-gradient(#352b3d,#151321);border-top:4px solid #8f7681}
+.stage--voice .character--euridice{right:19%;opacity:1;filter:drop-shadow(0 0 21px #e8b6ad88)}
+
+.stage--climax .stage__back{background:linear-gradient(110deg,#101827 0 42%,#9b6670 60%,#f0c595 100%)}
+.stage--climax .scenery--far-a{right:12%;top:8%;width:40%;height:65%;background:linear-gradient(#f8dfba,#dba48a);box-shadow:0 0 90px #f7d9a8a9}
+.stage--climax .scenery--far-b{right:14%;top:20%;width:36%;height:44%;background:linear-gradient(90deg,#96797a 0 8%,transparent 8% 32%,#867177 32% 38%,transparent 38% 68%,#867177 68% 74%,transparent 74%);opacity:.65}
+.stage--climax .scenery--arch-a{left:14%;right:14%;top:5%;height:87%;border:clamp(17px,3vw,40px) solid #3e4050;border-bottom:0;border-radius:38% 38% 0 0;box-shadow:inset 0 0 0 5px #8e7e82}
+.stage--climax .scenery--arch-b{right:14%;top:15%;width:22%;height:10%;background:#f1e0ba;border:6px solid #4a4b58}
+.stage--climax .scenery--arch-b:after{content:'SALIDA ↑';position:absolute;inset:0;display:grid;place-items:center;color:#3b4351;font:700 clamp(11px,1.5vw,18px) Arial,sans-serif}
+.stage--climax .scenery--mid-a{left:27%;right:20%;bottom:0;height:53%;background:repeating-linear-gradient(0deg,#706a70 0 8%,#343441 8.5% 13%);clip-path:polygon(27% 0,70% 0,100% 100%,0 100%)}
+.stage--climax .scenery--front-a{inset:auto 0 0;height:14%;background:linear-gradient(#282c3d,#0c111d);border-top:6px solid #b6a393}
+.stage--climax .character--euridice{right:31%}
+
+.stage--tragic .stage__back{background:radial-gradient(circle at 52% 31%,#f1c59b,#6e5364 17%,#181523 48%,#080b13)}
+.stage--tragic .scenery--far-a{left:37%;top:9%;width:27%;height:72%;background:#d7ad96;box-shadow:0 0 55px #edc6a888}
+.stage--tragic .scenery--far-b{left:18%;right:18%;top:5%;height:87%;border:18px solid #5e4d5a;border-bottom:0;border-radius:43% 43% 0 0}
+.stage--tragic .scenery--arch-a{left:23%;right:23%;top:26%;height:63%;background:repeating-linear-gradient(0deg,#171925 0 10%,#625963 10.4% 11.3%,#171925 12% 21%);box-shadow:0 0 32px #0a0912}
+.stage--tragic .scenery--arch-b{left:17%;right:17%;top:25%;height:7px;background:#a7918e;box-shadow:0 0 18px #c5a59d}
+.stage--tragic .scenery--mid-a{left:34%;bottom:0;width:32%;height:39%;background:linear-gradient(#2f2937,#0a0c16);clip-path:polygon(24% 0,76% 0,100% 100%,0 100%)}
+.stage--tragic .scenery--front-a{inset:auto 0 0;height:18%;background:linear-gradient(#262433,#080b14);border-top:7px solid #6b5a63}
+.stage--tragic .character--euridice{right:22%;opacity:.34}
+
+.stage--ending .stage__back{background:linear-gradient(#615870 0,#e0a98c 55%,#edccab 100%)}
+.stage--ending .scenery--far-a{right:15%;top:8%;width:16%;aspect-ratio:1;border-radius:50%;background:#fff0c6;box-shadow:0 0 80px #ffe1babb}
+.stage--ending .scenery--far-b{left:0;right:0;bottom:23%;height:44%;background:linear-gradient(90deg,#5a5f75 0 11%,transparent 11% 13%,#6e6878 13% 22%,transparent 22% 25%,#4d586d 25% 39%,transparent 39% 42%,#726979 42% 55%,transparent 55% 58%,#5f6275 58% 70%,transparent 70% 73%,#5d5b6f 73% 87%,transparent 87% 90%,#6f6876 90%);clip-path:polygon(0 23%,11% 23%,11% 32%,13% 32%,13% 12%,22% 12%,22% 30%,25% 30%,25% 4%,39% 4%,39% 38%,42% 38%,42% 23%,55% 23%,55% 34%,58% 34%,58% 9%,70% 9%,70% 28%,73% 28%,73% 19%,87% 19%,87% 31%,90% 31%,90% 8%,100% 8%,100% 100%,0 100%)}
+.stage--ending .scenery--arch-a{left:12%;bottom:17%;width:3px;height:52%;background:#3d4053;box-shadow:0 3px 0 2px #3d4053}.stage--ending .scenery--arch-a:before{content:'';position:absolute;top:3%;left:-14px;width:30px;height:15px;background:#f5d5a3;border-radius:50%;box-shadow:0 0 28px #ffe1b9}
+.stage--ending .scenery--arch-b{right:18%;bottom:13%;width:9%;height:31%;background:#565663;clip-path:polygon(30% 0,70% 0,100% 100%,0 100%)}
+.stage--ending .scenery--mid-a{left:0;right:0;bottom:0;height:30%;background:linear-gradient(#727382,#394457);border-top:11px solid #dbb792}
+.stage--ending .scenery--mid-b{left:22%;top:62%;width:48%;height:20%;background:linear-gradient(90deg,#45455988,#64555e44);clip-path:polygon(0 38%,71% 0,100% 100%,12% 81%)}
+.stage--ending .scenery--front-a{inset:auto 0 0;height:13%;background:repeating-linear-gradient(90deg,#4b5160 0 16%,#8e8990 16.2% 16.5%),linear-gradient(#777888,#333d4e);border-top:3px solid #e4c39e}
+.stage--ending .character--orpheus{left:38%}.stage--ending .character--euridice{right:30%}
+
+.stage--quiet .stage__back{background:radial-gradient(ellipse at 36% 35%,#59655c,#282c3a 55%,#0b111a)}
+.stage--quiet .scenery--far-a{left:9%;right:9%;top:6%;height:84%;border:17px solid #4d5862;border-bottom:0;border-radius:42% 42% 0 0;background:linear-gradient(#3e4d53,#222d39)}
+.stage--quiet .scenery--far-b{left:16%;right:16%;top:18%;height:54%;background:repeating-linear-gradient(90deg,transparent 0 21%,#97a48b55 21.5% 22%,transparent 22.5% 40%)}
+.stage--quiet .scenery--arch-a{left:18%;bottom:13%;width:23%;height:33%;border:7px solid #3b474d;border-top:11px solid #768477;background:#24313b}
+.stage--quiet .scenery--arch-b{right:11%;top:13%;width:24%;height:60%;border:12px solid #82918d;border-bottom:0;border-radius:46% 46% 0 0;background:#101821}
+.stage--quiet .scenery--mid-a{left:10%;bottom:16%;width:4%;height:48%;background:linear-gradient(#e9d5ac,#77756d 18%,#29323c 20%);box-shadow:0 0 34px #ddc9a488}
+.stage--quiet .scenery--mid-b{left:52%;bottom:12%;width:18%;height:22%;background:#4b5c58;clip-path:polygon(12% 0,88% 0,100% 100%,0 100%)}
+.stage--quiet .scenery--front-a{inset:auto 0 0;height:17%;background:linear-gradient(#48545b,#1a232e);border-top:5px solid #89918a}
+.stage--quiet .character--orpheus{left:26%}.stage--quiet .character--euridice{right:0}
+
+.stage--lost .stage__back{background:linear-gradient(#161b2b,#27314a 49%,#080d18)}
+.stage--lost .scenery--far-a{inset:14% 0 0;background:repeating-linear-gradient(90deg,#101828 0 11%,#69778b 11.2% 12%,#18253a 12.2% 24%);clip-path:polygon(0 0,100% 0,100% 88%,0 88%)}
+.stage--lost .scenery--far-b{left:37%;top:19%;width:26%;height:64%;border:12px solid #5b677e;border-bottom:0;border-radius:42% 42% 0 0;background:radial-gradient(ellipse at 50% 45%,#28354b,#080d18 72%)}
+.stage--lost .scenery--arch-a{left:6%;top:12%;width:27%;height:14%;background:#d8cbb0;border:8px solid #3b475d}
+.stage--lost .scenery--arch-a:after{content:'SALIDA ←';position:absolute;inset:0;display:grid;place-items:center;color:#283247;font:700 clamp(12px,1.5vw,18px) Arial,sans-serif}
+.stage--lost .scenery--arch-b{right:6%;top:12%;width:27%;height:14%;background:#d8cbb0;border:8px solid #3b475d}
+.stage--lost .scenery--arch-b:after{content:'SALIDA →';position:absolute;inset:0;display:grid;place-items:center;color:#283247;font:700 clamp(12px,1.5vw,18px) Arial,sans-serif}
+.stage--lost .scenery--mid-a{left:5%;right:5%;bottom:0;height:40%;background:repeating-linear-gradient(90deg,#141f2f 0 14%,#34445a 14.2% 14.7%,#101827 15% 30%);clip-path:polygon(0 0,39% 0,48% 100%,0 100%,100% 100%,52% 100%,61% 0,100% 0)}
+.stage--lost .scenery--front-a{inset:auto 0 0;height:16%;background:linear-gradient(#263449,#0b1321);border-top:7px solid #7b8a9a}
+.stage--lost .character--orpheus{left:45%}
+
+/* Scene lighting reacts to inspection without obscuring art or hotspots. */
+.stage--lit-warm .stage__back{filter:brightness(1.12) sepia(.12)}
+.stage--lit-cold .stage__back{filter:brightness(1.08) hue-rotate(8deg)}
+.stage--lit-violet .stage__back{filter:brightness(1.1) hue-rotate(-10deg)}
+@media(max-width:700px){.stage--gate .scenery--arch-b:after{font-size:8px}.stage--lost .scenery--arch-a:after,.stage--lost .scenery--arch-b:after{font-size:10px}.stage--bargain .character--euridice{right:0}.stage--ending .character--euridice{right:18%}}
+@media(prefers-reduced-motion:reduce){.stage--lit-warm .stage__back,.stage--lit-cold .stage__back,.stage--lit-violet .stage__back{filter:none}}
